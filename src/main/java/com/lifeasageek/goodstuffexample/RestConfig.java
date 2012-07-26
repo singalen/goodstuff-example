@@ -10,11 +10,4 @@ import javax.ws.rs.core.Application;
  */
 public class RestConfig extends Application
 {
-   @Override
-   public Set<Class<?>> getClasses()
-   {
-      Set<Class<?>> classes = new HashSet<>();
-      classes.add(DeedService.class);
-      return classes;
-   }
 }
