@@ -9,6 +9,8 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.webapp.WebAppContext;
 import org.slf4j.LoggerFactory;
 
+import java.net.URL;
+
 /**
  *
  * @author Justin Wyer <justin@lifeasageek.com>
@@ -37,7 +39,11 @@ public class App
          WebAppContext webapp = new WebAppContext();
          webapp.setConfigurationClasses(jettyConfigurationClasses);
 
-         String webappPath = App.class.getClassLoader().getResource("webapp").toExternalForm();
+         URL root = App.class.getClassLoader().getResource("");
+         if (root == null) {
+		     throw new IllegalStateException("Root resource not accessible");
+	     }
+         String webappPath = root.toExternalForm();
 
          webapp.setDescriptor(webappPath + "/WEB-INF/web.xml");
          webapp.setContextPath("/");
