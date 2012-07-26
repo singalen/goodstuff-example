@@ -33,10 +33,11 @@
    </servlet>
    <servlet-mapping>
       <servlet-name>jersey-serlvet</servlet-name>
-      <url-pattern>/rest/*</url-pattern>
+      <url-pattern>/*</url-pattern>
    </servlet-mapping>
    <servlet>
-      <servlet-name>app-serlvet</servlet-name>
+      <!--suppress ServletWithoutMappingInspection -->
+	   <servlet-name>app-serlvet</servlet-name>
       <servlet-class>
          com.lifeasageek.goodstuffexample.AppServlet
       </servlet-class>

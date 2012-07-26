@@ -45,7 +45,7 @@ public class DeedService
       Deed deed = goodStuff.doGoodDeed(altruist, recipient);
       try
       {
-         return Response.created(new URI("http://localhost:8080/rest/deed/" + deed.getId())).build();
+         return Response.created(new URI("http://localhost:8080/deed/" + deed.getId())).build();
       }
       catch (URISyntaxException ex)
       {
